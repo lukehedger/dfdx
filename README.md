@@ -21,10 +21,14 @@ To test the function locally, run `curl -X POST -H "Content-Type: application/js
 
 Run `bunx cdk deploy` to deploy the CDK stack to your AWS account.
 
+### Watch mode
+
+To enable hot reloading for the deployed function and infrastructure, run `bunx cdk watch --hotswap`
+
+This will also print live logs from the function to stdout.
+
+NOTE: You can view live logs from the function (without running CDK watch mode) by running `aws logs tail /aws/lambda/df --follow`
+
 ### Test
 
 To test the deployed function, run `curl -X POST -H "Content-Type: application/json" -d '{"test": true}' <API_GATEWAY_URL>`
-
-#### Logs
-
-You can view live logs by running `aws logs tail /aws/lambda/df --follow`
